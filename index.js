@@ -4,12 +4,11 @@
     const tableListDataSource = [];
     for (let i = 0; i < 500; i += 1) {
       tableListDataSource.push({
-        key: uid,
-        no: `TradeCode ${uid}`,
-        title: `一个任务名称 ${i}`,
-        callNo: Math.floor(Math.random() * 1000),
-        status: Math.floor(Math.random() * 10) % 4,
-        updatedAt: `2017-07-01`,
+        no: uid,
+        title: `A${uid}`,
+        callNo: `B${uid}`,
+        status: `C${uid}`,
+        updatedAt: `D${uid}`,
       });
 
       uid += 1;
@@ -36,7 +35,7 @@
       createCell(tr, item.callNo);
       createCell(tr, item.status);
       createCell(tr, item.updatedAt);
-      createCell(tr, '删除');
+      createCell(tr, 'Delete');
       tbody.appendChild(tr);
     });
   }
@@ -48,13 +47,15 @@
   let last = new Date();
 
   function run() {
-
     if (!running) {
       return;
     }
     var now = new Date();
     if (now - lastUpdatedFps > 1000) {
-      fps.replaceChild(document.createTextNode((1000 / (now - last)).toFixed(1)), fps.firstChild);
+      fps.replaceChild(
+        document.createTextNode((1000 / (now - last)).toFixed(1)),
+        fps.firstChild
+      );
       lastUpdatedFps = now;
     }
     last = now;
