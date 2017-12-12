@@ -1,44 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-  <link rel="stylesheet" href="https://unpkg.com/antd@3.0.1/dist/antd.css" type="text/css" charset="utf-8">
-</head>
-<body>
-  <button id="start">start</button>
-  <button id="stop">stop</button>
-  <div class="ant-spin ant-spin-spinning">
-    <span class="ant-spin-dot">
-      <i></i><i></i><i></i><i></i>
-    </span>
-  </div>
-  <div class="ant-table-wrapper">
-    <div class="ant-spin-nested-loading">
-      <div class="ant-spin-container">
-        <div class="ant-table ant-table-large ant-table-scroll-position-left">
-          <div class="ant-table-content">
-            <div class="ant-table-body">
-              <table>
-                <thead class="ant-table-thead">
-                  <tr>
-                    <th>规则编号</th>
-                    <th>描述</th>
-                    <th>服务调用次数</th>
-                    <th>状态</th>
-                    <th>更新时间</th>
-                    <th>操作</th>
-                  </tr>
-                </thead>
-                <tbody class="ant-table-tbody">
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://unpkg.com/antd@3.0.1/dist/antd.css" type="text/css" charset="utf-8">
+  </head>
+  <body>
+    <p>
+      <button id="start">start</button>
+      <button id="stop">stop</button>
+    </p>
+    <p>
+      <label>
+        <input type="checkbox" value="width" checked /> width 100%
+      </label>
+      <label>
+        <input type="checkbox" value="borderRadius" checked /> border radius
+      </label>
+      <label>
+        <input type="checkbox" value="overflow" checked /> overflow hidden
+      </label>
+    </p>
+    <p>
+      <div class="ant-spin ant-spin-spinning">
+        <span class="ant-spin-dot">
+          <i></i><i></i><i></i><i></i>
+        </span>
       </div>
+    </p>
+    <div style="overflow: hidden;">
+      <table style="width: 100%;border-radius: 4px 4px 0 0;overflow: hidden;">
+        <thead>
+          <tr>
+            <th>col1</th>
+            <th>col2</th>
+            <th>col3</th>
+            <th>col4</th>
+            <th>col5</th>
+            <th>col6</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
     </div>
-  </div>
-  <script type="text/javascript" src="./bundle.js"></script>
-</body>
+    <script type="text/javascript" src="./bundle.js"></script>
+  </body>
 </html>

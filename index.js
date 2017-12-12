@@ -2,7 +2,7 @@
   let uid = 0;
   const getList = () => {
     const tableListDataSource = [];
-    for (let i = 0; i < 500; i += 1) {
+    for (let i = 0; i < 2000; i += 1) {
       tableListDataSource.push({
         no: uid,
         title: `A${uid}`,
@@ -26,7 +26,7 @@
 
   function render() {
     const list = getList();
-    const tbody = document.querySelector('.ant-table-tbody');
+    const tbody = document.querySelector('tbody');
     tbody.innerHTML = '';
     list.forEach(item => {
       const tr = document.createElement('tr');
@@ -36,7 +36,6 @@
       createCell(tr, item.status);
       createCell(tr, item.updatedAt);
       createCell(tr, 'Delete');
-      tr.classList.add('ant-table-row')
       tbody.appendChild(tr);
     });
   }
@@ -61,5 +60,27 @@
     running = true;
     run();
   });
+
   document.querySelector('#stop').addEventListener('click', stop);
+
+  document.querySelectorAll('input').forEach(input => {
+    const table = document.querySelector('table');
+    input.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        switch (e.target.value) {
+          case 'width':
+            table.style.width = '100%';
+            break;
+          case 'borderRadius':
+            table.style.borderRadius = '4px 4px 0 0';
+            break;
+          case 'overflow':
+            table.style.overflow = 'hidden';
+            break;
+        }
+      } else {
+        table.style[e.target.value] = null;
+      }
+    })
+  });
 })();
