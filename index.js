@@ -36,29 +36,17 @@
       createCell(tr, item.status);
       createCell(tr, item.updatedAt);
       createCell(tr, 'Delete');
+      tr.classList.add('ant-table-row')
       tbody.appendChild(tr);
     });
   }
 
   let running = false;
 
-  const fps = document.querySelector('#fps');
-  let lastUpdatedFps = new Date();
-  let last = new Date();
-
   function run() {
     if (!running) {
       return;
     }
-    var now = new Date();
-    if (now - lastUpdatedFps > 1000) {
-      fps.replaceChild(
-        document.createTextNode((1000 / (now - last)).toFixed(1)),
-        fps.firstChild
-      );
-      lastUpdatedFps = now;
-    }
-    last = now;
     render();
     window.requestAnimationFrame(run);
   }
